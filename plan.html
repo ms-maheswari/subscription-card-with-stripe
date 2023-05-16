@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans</title>
+
+    <link rel="icon" href="card.svg" style="color: #d0c2c2" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+    <title>Pricing component</title>
+
+    <style>
+      * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 15px;
+  }
+  body {
+    background: #f7f7ff;
+    font-family: "Montserrat", sans-serif;
+    width: 80%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  header {
+    color: hsl(233, 13%, 49%);
+    margin: 3.3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sub {
+    background: linear-gradient(
+      135deg,
+      rgba(163, 168, 240, 1) 0%,
+      rgba(105, 111, 221, 1) 100%
+    );
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 1.6rem;
+    width: 3.3rem;
+    border-radius: 1.6rem;
+    padding: 0.3rem;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: #fff;
+    color: hsl(233, 13%, 49%);
+    border-radius: 0.8rem;
+  }
+  
+  .cards .card.active {
+    background: linear-gradient(
+      135deg,
+      rgba(163, 168, 240, 1) 0%,
+      rgba(105, 111, 221, 1) 100%
+    );
+    color: #fff;
+    display: flex;
+    align-items: center;
+    transform: scale(1.1);
+    z-index: 1;
+  }
+  ul {
+    margin: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  ul li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  ul li.price {
+    font-size: 3rem;
+    color: hsl(232, 13%, 33%);
+    padding-bottom: 2rem;
+  }
+  .shadow {
+    box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card.active .price {
+    color: #fff;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+    height: 2.6rem;
+    width: 13.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: linear-gradient(
+      135deg,
+      rgba(163, 168, 240, 1) 0%,
+      rgba(105, 111, 221, 1) 100%
+    );
+    color: #fff;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+  }
+
+  .btn:hover{
+    cursor:pointer;
+  }
+  .active-btn {
+    background: #fff;
+    color: hsl(237, 63%, 64%);
+  }
+  .bottom-bar {
+    border-bottom: 2px solid hsla(240, 8%, 85%, 0.582);
+  }
+  .card.active .bottom-bar {
+    border-bottom: 2px solid hsla(240, 8%, 85%, 0.253);
+  }
+  .pack {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 280px) {
+    ul {
+      margin: 1rem;
+    }
+    h1 {
+      font-size: 1.2rem;
+    }
+ 
+    .cards {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .card {
+      transform: scale(0.8);
+      margin-bottom: 1rem;
+    }
+    .cards .card.active {
+      transform: scale(0.8);
+    }
+  }
+  
+  @media (min-width: 280px) and (max-width: 320px) {
+    ul {
+      margin: 20px;
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      margin-bottom: 1rem;
+    }
+    .cards .card.active {
+      transform: scale(1);
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 414px) {
+    .cards {
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      margin-bottom: 1rem;
+    }
+    .cards .card.active {
+      transform: scale(1);
+    }
+  }
+  @media (min-width: 414px) and (max-width: 768px) {
+    .card {
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+    }
+    .cards .card.active {
+      transform: scale(1);
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1046px) {
+    .cards {
+      display: flex;
+    }
+    .card {
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+    }
+    .cards .card.active {
+      transform: scale(1);
+    }
+  }
+  
+    </style>
+    </head>
+    
+    <body>
+      <header>
+        <h1>Our Pricing</h1>
+      </header>
+      <div class="cards">
+        <div class="card shadow">
+          <ul>
+            <li class="pack">Basic</li>
+            <li id="basic" class="price bottom-bar">&#x20b9;0</li>
+            <li class="bottom-bar">Ask only  1 question  a day</li>
+            <li class="bottom-bar">Answer 1 question a day</li>
+            <li class="bottom-bar">You can upgrade in future</li>
+            <li><button class="btn">Already in use</button></li>
+          </ul>
+        </div>
+        <div class="card active">
+          <ul>
+            <li class="pack">Silver Plan</li>
+            <li id="professional" class="price bottom-bar">&#x20b9;100</li>
+            <li class="bottom-bar">Ask 5 questions a day</li>
+            <li class="bottom-bar">Answer unlimited questions</li>
+            <li class="bottom-bar">You can upgrade in future</li>
+            <li><button class="btn active-btn" onclick="window.location.href=' https://checkout.stripe.com/c/pay/cs_test_a1O14YlQXGfFQskhM7VuxrQ1fVtc6GUXXMdTdLvvVKU1vteurA0psP9XcR#fidkdWxOYHwnPyd1blpxYHZxWjA0SGZTcl9WQGhgN3Y0dGp0MFBHNUtGbUJUcTJiVGJNMz10NVRmbEsyZFRHdWpLYUQ1NTxIaTV2UE1fN0g2aTE1anZTQVNTbEZXSWtCMDFkbEJDMVY3d1xWNTV2f19xRjJhYycpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVozakBiNEtgdWxjdGdiVEA0MTMnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2Pyoqb3YrdnF3bHVgK2ZqaConKSdpamZkaWAnPydgaycpJ2BoZ2BhVmpwd2ZgJz8nZ3B8Wmdxa1o0SG51SjJWQGhgN3Y0dGp0U2hsXFRAQkgneCUl';">Click to Subscribe</button></li>
+          </ul>
+        </div>
+        <div class="card shadow">
+          <ul>
+            <li class="pack">Gold Plan</li>
+            <li id="master" class="price bottom-bar">&#x20b9;1000</li>
+            <li class="bottom-bar">Ask Unlimited question a day</li>
+            <li class="bottom-bar">Answer unlimited questions</li>
+            <li class="bottom-bar">You can upgrade in future</li>
+            <li><button class="btn" onclick="window.location.href=' https://checkout.stripe.com/c/pay/cs_test_a1v2BMcPEGdJXX5kg13nZc8gZ8GAog7TgOjzRCgkD8pbk78Hsi5jwOLrYj#fidkdWxOYHwnPyd1blpxYHZxWjA0SGZTcl9WQGhgN3Y0dGp0MFBHNUtGbUJUcTJiVGJNMz10NVRmbEsyZFRHdWpLYUQ1NTxIaTV2UE1fN0g2aTE1anZTQVNTbEZXSWtCMDFkbEJDMVY3d1xWNTV2f19xRjJhYycpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVo2ZnZiNEs3QkRhbDZgTHJkQE0nKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2Pyoqb3YrdnF3bHVgK2ZqaConKSdpamZkaWAnPydgaycpJ2BoZ2BhVmpwd2ZgJz8nZ3B8Wmdxa1o0SG50PEBWQGhgN3Y0dGp0TnBxbkw9fE4neCUl';">Click to Subscribe</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </body>
+</html>
